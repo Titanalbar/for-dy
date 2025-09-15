@@ -61,9 +61,9 @@ const quizData = {
     'q5_kenangan': {
         question: 'Di antara ribuan hari yang kita lewati, ada momen-momen emas yang tersimpan. Kenangan mana yang paling sering melintas di benakmu, yang bisa membuatmu tersenyum kecil?',
         answers: [
-            { text: 'Saat kita nekat ke [Nama Tempat Liburan Spesifik].', next: 'q6_detail' },
-            { text: 'Momen kecil seperti [Kebiasaan Unik Berdua, cth: jajan seblak hujan-hujan].', next: 'q6_detail' },
-            { text: 'Saat kita saling mendukung di masa sulit [Sebutkan Momennya, cth: waktu skripsi].', next: 'q6_detail' }
+            { text: 'Saat kita nekat ke Bukit Pelangi.', next: 'q6_detail' },
+            { text: 'Momen kecil seperti jajan seblak di condet.', next: 'q6_detail' },
+            { text: 'Saat kita saling mendukung di masa sulit.', next: 'q6_detail' }
         ]
     },
     'q6_detail': {
@@ -82,11 +82,11 @@ const quizData = {
         ]
     },
     'q8_visi': {
-        question: 'Janjiku yang kedua adalah tentang kita. Aku ingin kita bukan hanya sekadar "bersama", tapi menjadi sebuah "tim". Visi "kita" seperti apa yang paling kamu harapkan?',
+        question: 'Janjiku yang kedua adalah tentang kita. Aku ingin kita bukan hanya sekadar "bersama", tapi menjadi sebuah "kita". Visi "kita" seperti apa yang paling kamu harapkan?',
         answers: [
-            { text: 'Tim yang saling mendukung mimpi masing-masing.', next: 'q9_serius' },
-            { text: 'Tim yang bisa berkomunikasi dewasa tanpa drama.', next: 'q9_serius' },
-            { text: 'Tim yang menjadikan satu sama lain rumah untuk pulang.', next: 'q9_serius' }
+            { text: 'Kita yang saling mendukung mimpi masing-masing.', next: 'q9_serius' },
+            { text: 'Kita yang bisa berkomunikasi dewasa tanpa drama.', next: 'q9_serius' },
+            { text: 'Kita yang menjadikan satu sama lain rumah untuk pulang.', next: 'q9_serius' }
         ]
     },
     'q9_serius': {
@@ -94,13 +94,6 @@ const quizData = {
         prose: 'Semua kata-kata ini tidak ada artinya tanpa bukti. Aku sudah menyiapkan sebuah pesan terakhir, sebuah bukti dari keseriusanku.',
         answers: [
             { text: 'Tunjukkan padaku', next: 'q_final' }
-        ]
-    },
-    'q_final': {
-        question: 'Terima kasih sudah berjalan sejauh ini bersamaku.',
-        prose: 'Ini adalah janji dan harapan terakhirku untukmu, untuk kita.',
-        answers: [
-            { text: 'Lihat video', next: 'final_video' } 
         ]
     },
     'end_yes': {
