@@ -153,18 +153,31 @@ function showQuestion(questionId) {
 
             // PERBAIKAN: Gunakan 'timeupdate' yang lebih andal
             let videoHasEnded = false; 
-            video.addEventListener('timeupdate', () => {
-                if (!videoHasEnded && (video.duration - video.currentTime < 0.5)) {
-                    videoHasEnded = true; 
-                    clearInterval(heartInterval);
-                    heartsContainer.innerHTML = '';
-                    const overlay = document.getElementById('final-overlay');
-                    overlay.style.display = 'flex';
-                    setTimeout(() => {
-                        overlay.style.opacity = '1';
-                    }, 100);
-                }
-            });
+            // --- KODE BARU ---
+video.addEventListener('timeupdate', () => {
+    // Cek jika video sudah mendekati akhir & aksi belum dijalankan
+    if (!videoHasEnded && (video.duration - video.currentTime < 0.5)) {
+        
+        videoHasEnded = true; 
+        clearInterval(heartInterval);
+        heartsContainer.innerHTML = '';
+        
+        const overlay = document.getElementById('final-overlay');
+        overlay.style.display = 'flex';
+        
+        setTimeout(() => {
+            overlay.style.opacity = '1';
+
+            // --- BAGIAN BARU DITAMBAHKAN DI SINI ---
+            // music sudah didefinisikan di awal fungsi showQuestion
+            music.volume = 0.5;      // Atur volume ke 50%
+            music.currentTime = 0;   // Kembali ke awal lagu
+            music.play();            // Putar lagi musiknya
+            // ----------------------------------------
+
+        }, 100); // delay kecil untuk memastikan transisi berjalan
+    }
+});
         } 
         else { 
             const questionEl = document.createElement('h1');
