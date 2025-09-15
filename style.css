@@ -1,6 +1,6 @@
 body {
     background-color: #FFECF4;
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Arial', sans-serif;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -27,14 +27,15 @@ body {
 }
 
 h1 {
-    font-family: 'Playfair Display', serif;
+    font-family: Arial, sans-serif;
     color: #D81B60;
     font-size: 2.5em;
 }
 
 p {
-    font-size: 1.1em;
+     font-size: 1.1em;
     line-height: 1.6;
+    text-align: justify;
 }
 
 .button-container {
@@ -110,7 +111,7 @@ video {
     font-family: 'Montserrat', sans-serif;
     font-size: 1.2em;
     line-height: 1.8;
-    text-align: center;
+    text-align: justify;
     max-width: 800px;
     padding: 40px;
     white-space: pre-wrap;
