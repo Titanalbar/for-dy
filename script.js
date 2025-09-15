@@ -93,7 +93,7 @@ const quizData = {
         question: 'Itu juga visiku. Dan aku mau ini menjadi nyata, bukan hanya angan-angan. Aku ingin menunjukkan bahwa aku serius, lebih serius dari sebelumnya.',
         prose: 'Semua kata-kata ini tidak ada artinya tanpa bukti. Aku sudah menyiapkan sebuah pesan terakhir, sebuah bukti dari keseriusanku.',
         answers: [
-            { text: 'Tunjukkan padaku', next: 'q_final' }
+            { text: 'Tunjukkan padaku', next: 'end_yes' }
         ]
     },
     'end_yes': {
