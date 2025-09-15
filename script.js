@@ -1,66 +1,106 @@
 const quizContainer = document.getElementById('quiz-container');
 const heartsContainer = document.getElementById('hearts-container');
 
+// GANTI SELURUH OBJEK quizData LAMA DENGAN YANG BARU INI
+
 const quizData = {
     'start': {
         question: 'Untuk Diyyah, Bidadari 7 Tahunku.',
-        prose: 'Aku tahu kata-kata saja tidak akan pernah cukup. Tapi izinkan aku mengajakmu mengingat sejenak perjalanan kita, dari sudut pandangku yang sekarang. Aku yang sudah sadar.',
+        prose: 'Aku tahu kata-kata saja tidak akan pernah cukup. Tapi izinkan aku mengajakmu dalam sebuah perjalanan singkat, untuk melihat semua dari sudut pandangku yang sekarang. Aku yang sudah benar-benar sadar.',
         answers: [
-            { text: 'Mulai...', next: 'q1' }
+            { text: 'Mulai perjalanan...', next: 'q1' }
         ]
     },
     'q1': {
-        question: 'Dari semua kebodohanku selama 7 tahun ini, mana yang paling menyakitimu?',
+        question: 'Langkah pertama adalah pengakuan. Dari semua kebodohanku, mana yang meninggalkan luka paling dalam untukmu?',
         answers: [
-            { text: 'Saat kamu tahu aku berbohong.', next: 'q_bohong' },
-            { text: 'Saat aku diam-diam kenalan & follow cewek lain.', next: 'q_selingkuh' },
-            { text: 'Sikapku yang sering nggak baik dan nggak menghargaimu.', next: 'q_sikap' }
+            { text: 'Saat aku tidak jujur dan menyembunyikan sesuatu.', next: 'q2_bohong' },
+            { text: 'Saat aku melukai kepercayaanmu dengan perempuan lain.', next: 'q2_selingkuh' },
+            { text: 'Sikap dinginku dan caraku yang sering tidak menghargaimu.', next: 'q2_sikap' }
         ]
     },
-    'q_bohong': {
-        question: 'Aku tahu setiap kebohongan meruntuhkan kepercayaanmu. Apa yang paling kamu rasakan saat itu?',
+    'q2_bohong': {
+        question: 'Aku sadar setiap kebohongan adalah racun. Itu membuatmu merasa tidak dihargai dan diremehkan. Apa yang paling sering kamu pikirkan saat tahu aku tidak jujur?',
         answers: [
-            { text: 'Aku merasa seperti orang bodoh.', next: 'q_kenangan' },
-            { text: 'Aku merasa tidak berharga.', next: 'q_kenangan' },
-            { text: 'Aku kehilangan rasa aman.', next: 'q_kenangan' }
+            { text: '"Apa aku sebodoh itu sampai tidak bisa melihatnya?"', next: 'q3_perasaanmu' },
+            { text: '"Apa kurangku sampai dia harus berbohong?"', next: 'q3_perasaanmu' },
+            { text: '"Aku tidak bisa percaya apapun lagi yang dia katakan."', next: 'q3_perasaanmu' }
         ]
     },
-    'q_selingkuh': {
-        question: 'Aku sadar perbuatanku itu membuatmu terus membandingkan diri. Perasaan apa yang paling sering muncul?',
+    'q2_selingkuh': {
+        question: 'Tindakanku itu pasti menumbuhkan insecure yang sangat besar di hatimu. Aku minta maaf. Perasaan apa yang paling menyiksamu saat itu?',
         answers: [
-            { text: 'Aku jadi insecure.', next: 'q_kenangan' },
-            { text: 'Aku merasa kamu nggak pernah cukup denganku.', next: 'q_kenangan' },
-            { text: 'Aku marah karena tidak dihargai.', next: 'q_kenangan' }
+            { text: 'Perasaan tidak akan pernah cukup baik untukmu.', next: 'q3_perasaanmu' },
+            { text: 'Rasa cemburu dan curiga yang tidak pernah hilang.', next: 'q3_perasaanmu' },
+            { text: 'Marah, karena kesetiaanku terasa sia-sia.', next: 'q3_perasaanmu' }
         ]
     },
-     'q_sikap': {
-        question: 'Mengingat sikapku yang sering menyakitimu, momen mana yang paling membuatmu merasa sendirian?',
+    'q2_sikap': {
+        question: 'Aku sering egois dan lupa bahwa ada hatimu yang harus kujaga. Sikapku yang mana yang paling membuatmu merasa sendirian dalam hubungan ini?',
         answers: [
-            { text: 'Saat aku membentakmu di depan teman-teman.', next: 'q_kenangan' },
-            { text: 'Saat kamu butuh dukungan tapi aku malah sibuk sendiri.', next: 'q_kenangan' }
+            { text: 'Saat aku lebih mementingkan teman/hobiku.', next: 'q3_perasaanmu' },
+            { text: 'Saat kamu butuh didengarkan, tapi aku malah sibuk dengan duniaku.', next: 'q3_perasaanmu' },
+            { text: 'Saat aku meremehkan perasaan atau masalahmu.', next: 'q3_perasaanmu' }
         ]
     },
-    'q_kenangan': {
-        question: 'Di tengah semua badai itu, adakah satu kenangan manis kita yang masih sering kamu ingat?',
-         answers: [
-            { text: 'Motor aku mogok pas ke bukit pelangi.', next: 'q_janji' },
-            { text: 'Saat aku nyamperin kamu ke semarang.', next: 'q_janji' },
-            { text: 'Momen-momen kecil saat jajan seblak.', next: 'q_janji' }
+    'q3_perasaanmu': {
+        question: 'Semua itu mengerucut pada satu perasaan. Aku tahu aku telah menyebabkan badai di hatimu. Jika harus memilih satu kata, perasaan apa yang paling menggambarkan kondisimu saat itu?',
+        answers: [
+            { text: 'Kecewa.', next: 'q4_validasi' },
+            { text: 'Lelah.', next: 'q4_validasi' },
+            { text: 'Hancur.', next: 'q4_validasi' }
         ]
     },
-    'q_janji': {
-        question: 'Aku ingin menciptakan lebih banyak lagi kenangan seperti itu, tapi dengan versi diriku yang baru.',
-        prose: 'Versi yang menjadikanmu satu-satunya, yang mendengarkanmu, dan yang pantas untukmu. Aku tidak akan mengulangi kebodohan yang sama. Ini janjiku.',
+    'q4_validasi': {
+        question: 'Aku mengerti. Kamu berhak merasakan itu semua. Aku yang seharusnya jadi alasanmu bahagia, malah menjadi sumber luka terbesarmu. Aku minta maaf, dari lubuk hatiku yang terdalam.',
+        prose: 'Tapi di tengah semua puing-puing itu, ada alasan kita bisa bertahan 7 tahun. Ada fondasi yang pernah kita bangun. Izinkan aku mengingatnya sejenak.',
         answers: [
-            { text: 'Lanjut...', next: 'q_final' }
+            { text: 'Lanjutkan...', next: 'q5_kenangan' }
+        ]
+    },
+    'q5_kenangan': {
+        question: 'Di antara ribuan hari yang kita lewati, ada momen-momen emas yang tersimpan. Kenangan mana yang paling sering melintas di benakmu, yang bisa membuatmu tersenyum kecil?',
+        answers: [
+            { text: 'Saat kita nekat ke [Nama Tempat Liburan Spesifik].', next: 'q6_detail' },
+            { text: 'Momen kecil seperti [Kebiasaan Unik Berdua, cth: jajan seblak hujan-hujan].', next: 'q6_detail' },
+            { text: 'Saat kita saling mendukung di masa sulit [Sebutkan Momennya, cth: waktu skripsi].', next: 'q6_detail' }
+        ]
+    },
+    'q6_detail': {
+        question: 'Aku juga paling suka momen itu. Apa detail paling kecil dari kenangan itu yang paling kamu ingat?',
+        answers: [
+            { text: 'Caramu tertawa saat itu.', next: 'q7_janji' },
+            { text: 'Obrolan kita sepanjang perjalanan.', next: 'q7_janji' },
+            { text: 'Perasaan lega dan bahagia saat itu.', next: 'q7_janji' }
+        ]
+    },
+    'q7_janji': {
+        question: 'Tawa dan perasaan itulah yang ingin aku perjuangkan kembali. Aku tidak menawarkan masa lalu, tapi masa depan yang berbeda. Ini adalah janjiku yang pertama dan utama:',
+        prose: 'Aku akan membangun kembali kepercayaanmu, dengan kejujuran mutlak, tidak peduli sepahit apapun kebenarannya.',
+        answers: [
+            { text: 'Aku dengar...', next: 'q8_visi' }
+        ]
+    },
+    'q8_visi': {
+        question: 'Janjiku yang kedua adalah tentang kita. Aku ingin kita bukan hanya sekadar "bersama", tapi menjadi sebuah "tim". Visi "kita" seperti apa yang paling kamu harapkan?',
+        answers: [
+            { text: 'Tim yang saling mendukung mimpi masing-masing.', next: 'q9_serius' },
+            { text: 'Tim yang bisa berkomunikasi dewasa tanpa drama.', next: 'q9_serius' },
+            { text: 'Tim yang menjadikan satu sama lain rumah untuk pulang.', next: 'q9_serius' }
+        ]
+    },
+    'q9_serius': {
+        question: 'Itu juga visiku. Dan aku mau ini menjadi nyata, bukan hanya angan-angan. Aku ingin menunjukkan bahwa aku serius, lebih serius dari sebelumnya.',
+        prose: 'Semua kata-kata ini tidak ada artinya tanpa bukti. Aku sudah menyiapkan sebuah pesan terakhir, sebuah bukti dari keseriusanku.',
+        answers: [
+            { text: 'Tunjukkan padaku', next: 'q_final' }
         ]
     },
     'q_final': {
-        question: 'Diyyah, maukah kamu memberiku satu kesempatan terakhir?',
-        prose: 'Untuk membuktikan janjiku dan memulai kembali semuanya dari nol?',
+        question: 'Terima kasih sudah berjalan sejauh ini bersamaku.',
+        prose: 'Ini adalah janji dan harapan terakhirku untukmu, untuk kita.',
         answers: [
-            { text: 'Ya, aku mau coba lagi.', next: 'end_yes' },
-            { text: 'Aku butuh waktu untuk berpikir.', next: 'end_think' }
+            { text: 'Lihat video', next: 'final_video' } 
         ]
     },
     'end_yes': {
@@ -73,14 +113,14 @@ const quizData = {
     'final_video': {
         type: 'video',
         videoSrc: 'diyyah.mp4',
-        prose: 'Aku sayang kamu, selamanya.'
+        prose: 'Aku mencintaimu, sekarang dan selamanya.'
     },
     'end_think': {
         question: 'Tidak apa-apa, aku mengerti.',
         prose: 'Ambil waktu sebanyak yang kamu butuhkan. Aku tidak akan memaksa. Aku akan hargai apapun keputusanmu. Sambil menunggu, aku akan terus fokus memperbaiki diri, bukan agar kamu kembali, tapi karena itu hal yang benar untuk dilakukan. Aku sayang kamu.'
     }
 };
-
+    
 function showQuestion(questionId) {
     const data = quizData[questionId];
     
